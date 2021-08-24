@@ -3,13 +3,13 @@
 #include <math.h>
 //#include "quadratic_equation.h"
 
-enum boolean { YES, NO };
+enum boolean { YES, NO, NODATA };
 
 struct quadratic_equation {
 
     double coeff_a, coeff_b, coeff_c;
     double root_1, root_2;
-    enum boolean is_solvable = YES;
+    boolean is_solvable = NODATA;
 };
 
 struct quadratic_equation create_equation ( double coeff_a, double coeff_b, double coeff_c )
@@ -29,20 +29,22 @@ double calc_discriminant ( struct quadratic_equation temporary )
     return discriminant;
 }
 
-void is_solvable ( struct quadratic_equation temporary )
+struct quadratic_equation check_solvability ( struct quadratic_equation temporary )
 {
-    double discriminant;
+    double discriminant = calc_discriminant( temporary );
 
-    if ( ( discriminant = calc_discriminant( temporary ) ) >= 0 )
+    if ( discriminant >= 0 )
         temporary.is_solvable = YES;
     else
         temporary.is_solvable = NO;
+
+    return temporary;
 }
 
 struct quadratic_equation solve_equation ( struct quadratic_equation temporary )
 {
     double discriminant = calc_discriminant( temporary );
-    is_solvable( temporary );
+    temporary = check_solvability( temporary );
 
     if( temporary.is_solvable == YES )
     {
@@ -73,7 +75,7 @@ int main()
 
     scanf( "%lf", &coeff_c );
 
-    printf( "%s%f%s%f%s%f%s", "Введено уравнение ", coeff_a, "*X^2+", coeff_b, "*X+", coeff_c, "=0 \n" ); // адекватный вывод будет позже
+    printf( "%s%f%s%f%s%f%s", "Введено уравнение ", coeff_a, "*X^2+", coeff_b, "*X+", coeff_c, "=0 \n \n" ); // адекватный вывод будет позже
 
     equation = create_equation( coeff_a, coeff_b, coeff_c );
     equation = solve_equation( equation );

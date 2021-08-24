@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1629796614 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
