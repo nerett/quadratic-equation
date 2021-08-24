@@ -12,6 +12,70 @@ struct quadratic_equation {
     boolean is_solvable = NODATA;
 };
 
+//struct quadratic_equation bea_input ( struct quadratic_equation );
+//void bea_output ( struct quadratic_equation );
+struct quadratic_equation solve_equation ( struct quadratic_equation );
+struct quadratic_equation check_solvability ( struct quadratic_equation );
+double calc_discriminant( struct quadratic_equation );
+struct quadratic_equation create_equation ( double, double, double );
+
+int main()
+{
+    double coeff_a = 1, coeff_b = 1, coeff_c = 1; // a*X^2+b*X+c=0
+    //struct
+    quadratic_equation equation;
+
+
+    //setlocale(LC_ALL, "rus");
+    printf( "Квадратное уравнение имеет вид " );
+    printf( "a*X^2+b*X+c=0 \n" );
+    printf( "Введите коэффициент a: \n" );
+
+    scanf( "%lf", &coeff_a );
+
+    printf( "Введите коэффициент b: \n" );
+
+    scanf( "%lf", &coeff_b );
+
+    printf( "Введите коэффициент c: \n" );
+
+    scanf( "%lf", &coeff_c );
+
+    printf( "%s%f%s%f%s%f%s", "Введено уравнение ", coeff_a, "*X^2+", coeff_b, "*X+", coeff_c, "=0 \n \n" ); // адекватный вывод будет позже
+
+
+    equation = create_equation( coeff_a, coeff_b, coeff_c );
+    equation = solve_equation( equation );
+
+
+    if ( equation.is_solvable == YES )
+    {
+        printf( "Корнями уравнения являются числа: \n" );
+        printf( "%f%s", equation.root_1, "\n" );
+        printf( "%f%s", equation.root_2, "\n" );
+
+    }
+    else
+        printf( "Уравнение не имеет корней! \n" ); // так, давайте без этой вашей вузовской программы пока
+
+/*
+    switch( equation.is_solvable )
+    {
+        case YES:
+                printf( "%f%s", equation.root_1, "\n" );
+                printf( "%f%s", equation.root_2, "\n" );
+        case NO:
+                printf( "Уравнение не имеет корней! \n" );
+        case NODATA:
+                printf( "Уравнение не было решено! \n" );
+    }
+*/
+
+     return 0;
+}
+
+// quadratic_equation
+
 struct quadratic_equation create_equation ( double coeff_a, double coeff_b, double coeff_c )
 {
     struct quadratic_equation temporary;
@@ -53,42 +117,4 @@ struct quadratic_equation solve_equation ( struct quadratic_equation temporary )
     }
 
     return temporary;
-}
-
-int main()
-{
-    double coeff_a = 1, coeff_b = 1, coeff_c = 1; // a*X^2+b*X+c=0
-    struct quadratic_equation equation;
-
-    //setlocale(LC_ALL, "rus");
-    printf( "Квадратное уравнение имеет вид " );
-    printf( "a*X^2+b*X+c=0 \n" );
-    printf( "Введите коэффициент a: \n" );
-
-    scanf( "%lf", &coeff_a );
-
-    printf( "Введите коэффициент b: \n" );
-
-    scanf( "%lf", &coeff_b );
-
-    printf( "Введите коэффициент c: \n" );
-
-    scanf( "%lf", &coeff_c );
-
-    printf( "%s%f%s%f%s%f%s", "Введено уравнение ", coeff_a, "*X^2+", coeff_b, "*X+", coeff_c, "=0 \n \n" ); // адекватный вывод будет позже
-
-    equation = create_equation( coeff_a, coeff_b, coeff_c );
-    equation = solve_equation( equation );
-
-    if ( equation.is_solvable == YES )
-    {
-        printf( "Корнями уравнения являются числа: \n" );
-        printf( "%f%s", equation.root_1, "\n" );
-        printf( "%f%s", equation.root_2, "\n" );
-
-    }
-    else
-        printf( "Уравнение не имеет корней! \n" ); // так, давайте без этой вашей вузовской программы пока
-
-     return 0;
 }
