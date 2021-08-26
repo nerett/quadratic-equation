@@ -3,13 +3,14 @@
 #include <math.h>
 //#include "quadratic_equation.h"
 
-enum boolean { YES, NO, NODATA };
+enum number_of_roots { TWO, ONE, NO_ROOTS };
 
 struct quadratic_equation
 {
-    double coeff_a, coeff_b, coeff_c;
-    double root_1, root_2;
-    boolean is_solvable = NODATA;
+    double coeff_a = NAN, coeff_b = NAN, coeff_c = NAN;
+    double root_1 = NAN, root_2 = NAN;
+    double discriminant = NAN;
+    number_of_roots roots = {};
 };
 
 void beau_input ( double*, double*, double*, bool );
@@ -17,7 +18,7 @@ void beau_output ( struct quadratic_equation* );
 void input_wipe_char();
 struct quadratic_equation solve_equation( struct quadratic_equation* );
 struct quadratic_equation check_solvability( struct quadratic_equation* );
-double calc_discriminant( struct quadratic_equation* );
+void calc_discriminant( struct quadratic_equation* );
 struct quadratic_equation set_equation_coeffs( struct quadratic_equation*, double, double, double );
 
 int main()
@@ -58,31 +59,33 @@ struct quadratic_equation set_equation_coeffs( struct quadratic_equation* tempor
     temporary->coeff_c = coeff_c;
 }
 
-double calc_discriminant( struct quadratic_equation* temporary ) //!TODO написать сравнение с нулём нормально, fabs compare_with_zero
+void calc_discriminant( struct quadratic_equation* temporary ) //!TODO написать сравнение с нулём нормально, fabs compare_with_zero
 {
     double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4*(temporary->coeff_a * temporary->coeff_c);
-    return discriminant;
+    temporary->discriminant = discriminant;
 }
 
 struct quadratic_equation check_solvability( struct quadratic_equation* temporary )
 {
-    double discriminant = calc_discriminant( temporary );
+    calc_discriminant( temporary );
 
-    if ( discriminant >= 0 )
-        temporary->is_solvable = YES;
-    else
-        temporary->is_solvable = NO;
+
+    if ( temporary->discriminant > 0 )
+        temporary->roots = TWO;
+    if ( temporary->discriminant == 0 )
+        temporary->roots = ONE;
+    if ( temporary->discriminant < 0 )
+        temporary->roots = NO_ROOTS;
 }
 
 struct quadratic_equation solve_equation( struct quadratic_equation* temporary ) //!TODO частные случаи линейное квадратное
 {
-    double discriminant = calc_discriminant( temporary );
     check_solvability( temporary );
 
-    if( temporary->is_solvable == YES )
+    if( temporary->roots != NO_ROOTS )
     {
-        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( discriminant ) ) / ( 2* temporary->coeff_a ); //!TODO вынести во временную переменную
-        temporary->root_2 = ( -1* temporary->coeff_b - sqrt( discriminant ) ) / ( 2* temporary->coeff_a );
+        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a ); //!TODO вынести во временную переменную
+        temporary->root_2 = ( -1* temporary->coeff_b - sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
     }
 }
 
@@ -139,16 +142,37 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
 
 void beau_output( struct quadratic_equation* temporary )
 {
-    if ( temporary->is_solvable == YES )      //!TODO enum для колва корней
+    if( temporary->roots == TWO )
     {
         printf( "Корнями уравнения являются числа: \n" );
         printf( "%f\n", temporary->root_1 );
         printf( "%f\n", temporary->root_2 );
-
+    }
+    if( temporary->roots == ONE )
+    {
+        printf( "КУравнение имеет единственный корень: \n" );
+        printf( "%f\n", temporary->root_1 );
     }
     else
         printf( "Уравнение не имеет корней! \n" ); // так, давайте без этой вашей вузовской программы пока
 
 }
+
+void solve_quadratic_equation( struct quadratic_equation* temporary )
+{
+        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a ); //!TODO вынести во временную переменную
+        if( temporary->roots == TWO )
+            temporary->root_2 = ( -1* temporary->coeff_b - sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
+        else
+            temporary->root_2 = temporary->root_1;
+}
+
+void solve_linear_equation(  )
+{
+
+}
+
+
+
 
 
