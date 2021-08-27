@@ -8,7 +8,7 @@ The program is written using **structures** of the C language, **functions** and
 This section isn't done yet.
 
 ## Documentation
-This section isn't done yet.
+https://nerett.github.io/quadratic-equation/
 
 ## About project
 This programm was written during MIPT Summer Programming School.

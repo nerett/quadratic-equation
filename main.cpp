@@ -1,7 +1,11 @@
 #include "quadratic_equation_struct.h"
+#include "unit_tests/test_quadratic_equation.h"
 
 int main()
 {
+    TEST_quadratic_equation();
+
+
     double coeff_a = NAN, coeff_b = NAN, coeff_c = NAN; // a*X^2+b*X+c=0
     quadratic_equation equation = {};
 
