@@ -24,7 +24,7 @@ void input_wipe_char();
 void solve_equation( struct quadratic_equation* );
 void check_solvability( struct quadratic_equation* );
 void calc_discriminant( struct quadratic_equation* );
-void set_equation_coeffs( struct quadratic_equation*, double, double, double );
+void set_equation_coeffs( struct quadratic_equation*, const double, const double, const double );
 bool compare_with_zero( double );
 void solve_linear_equation( struct quadratic_equation* );
 

@@ -1,7 +1,7 @@
 #include "quadratic_equation_struct.h"
 
 
-void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, double coeff_b, double coeff_c ) //!TODO написать ассерты сделать const
+void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, const double coeff_b, const double coeff_c ) //!TODO написать ассерты сделать const
 {
     temporary->coeff_a = coeff_a;
     temporary->coeff_b = coeff_b;
@@ -10,7 +10,7 @@ void set_equation_coeffs( struct quadratic_equation* temporary, const double coe
 
 
 
-void calc_discriminant( struct quadratic_equation* temporary ) //!TODO написать сравнение с нулём нормально, fabs compare_with_zero
+void calc_discriminant( struct quadratic_equation* temporary )
 {
     double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4*(temporary->coeff_a * temporary->coeff_c);
     temporary->discriminant = discriminant;
@@ -140,9 +140,27 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
 
 
 
-void solve_linear_equation( struct quadratic_equation* temporary )
+void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*X=-c, X=-c/b
 {
-
+    if( temporary->coeff_b == 0 )
+    {
+        if( temporary->coeff_c == 0 )
+        {
+            temporary->roots = ONE;
+            temporary->root_1 = 0;
+            temporary->root_2 = temporary->root_1; //а мало ли что...
+        }
+        else
+        {
+            temporary->roots = NO_ROOTS;
+        }
+    }
+    else
+    {
+        temporary->roots = ONE;
+        temporary->root_1 = ( -1* temporary->coeff_c ) / temporary->coeff_b;
+        temporary->root_2 = temporary->root_2;
+    }
 }
 
 

@@ -6,6 +6,9 @@ int main()
     quadratic_equation equation = {};
 
 
+    printf( "" ); //!TODO about:program
+
+
     beau_input( &coeff_a, &coeff_b, &coeff_c, false );
 
 
