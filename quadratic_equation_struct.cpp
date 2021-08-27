@@ -47,7 +47,7 @@ void check_solvability( struct quadratic_equation* temporary )
 
 
 
-void solve_equation( struct quadratic_equation* temporary ) //!TODO частные случаи линейное квадратное
+void solve_equation( struct quadratic_equation* temporary )
 {
     assert( temporary != NULL );
 
@@ -163,7 +163,7 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
         assert( temporary != NULL );
 
 
-        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a ); //!TODO вынести во временную переменную
+        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
         if( temporary->roots == TWO )
             temporary->root_2 = ( -1* temporary->coeff_b - sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
         else
@@ -182,8 +182,6 @@ void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*
         if( temporary->coeff_c == 0 )
         {
             temporary->roots = INFINITY_ROOTS;
-            //temporary->root_1 = 0;
-            //temporary->root_2 = temporary->root_1; //а мало ли что...
         }
         else
         {
