@@ -1,14 +1,14 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
 #include "quadratic_equation_struct.h"
 
-struct quadratic_equation set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, double coeff_b, double coeff_c ) //!TODO написать ассерты сделать const
+
+void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, double coeff_b, double coeff_c ) //!TODO написать ассерты сделать const
 {
     temporary->coeff_a = coeff_a;
     temporary->coeff_b = coeff_b;
     temporary->coeff_c = coeff_c;
 }
+
+
 
 void calc_discriminant( struct quadratic_equation* temporary ) //!TODO написать сравнение с нулём нормально, fabs compare_with_zero
 {
@@ -16,7 +16,9 @@ void calc_discriminant( struct quadratic_equation* temporary ) //!TODO напи�
     temporary->discriminant = discriminant;
 }
 
-struct quadratic_equation check_solvability( struct quadratic_equation* temporary )
+
+
+void check_solvability( struct quadratic_equation* temporary )
 {
     calc_discriminant( temporary );
 
@@ -29,20 +31,33 @@ struct quadratic_equation check_solvability( struct quadratic_equation* temporar
         temporary->roots = NO_ROOTS;
 }
 
-struct quadratic_equation solve_equation( struct quadratic_equation* temporary ) //!TODO частные случаи линейное квадратное
-{
-    check_solvability( temporary );
 
-    if( temporary->roots != NO_ROOTS )
+
+void solve_equation( struct quadratic_equation* temporary ) //!TODO частные случаи линейное квадратное
+{
+    if( compare_with_zero( temporary->coeff_a ) )
     {
-        solve_quadratic_equation( temporary );
+        solve_linear_equation( temporary );
+    }
+    else
+    {
+        check_solvability( temporary );
+
+        if( temporary->roots != NO_ROOTS )
+        {
+            solve_quadratic_equation( temporary );
+        }
     }
 }
+
+
 
 void input_wipe_char() //очищает входной файл от элементов типа char
 {
     while( getchar() != '\n' ) {}
 }
+
+
 
 void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_user_info )
 {
@@ -78,7 +93,7 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
 
 
         if( success_inputs < 3 )
-            printf( "Один или несколько коэффициентов введены неверно, попробуйте ещё раз\n" );
+            printf( "\nОдин или несколько коэффициентов введены неверно, попробуйте ещё раз\n" );
     }
     while( success_inputs < 3 );
 
@@ -90,6 +105,8 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
     }
 }
 
+
+
 void beau_output( struct quadratic_equation* temporary )
 {
     if( temporary->roots == TWO )
@@ -100,7 +117,7 @@ void beau_output( struct quadratic_equation* temporary )
     }
     if( temporary->roots == ONE )
     {
-        printf( "КУравнение имеет единственный корень: \n" );
+        printf( "Уравнение имеет единственный корень: \n" );
         printf( "%f\n", temporary->root_1 );
     }
     if( temporary->roots == NO_ROOTS )
@@ -109,6 +126,8 @@ void beau_output( struct quadratic_equation* temporary )
 
     }
 }
+
+
 
 void solve_quadratic_equation( struct quadratic_equation* temporary )
 {
@@ -119,9 +138,26 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
             temporary->root_2 = temporary->root_1;
 }
 
-void solve_linear_equation(  )
+
+
+void solve_linear_equation( struct quadratic_equation* temporary )
 {
 
 }
+
+
+
+bool compare_with_zero( double value )
+{
+    if( fabs( value ) < DEVIATION_IN_CMP )
+        return true;
+    else
+        return false;
+}
+
+
+
+
+
 
 
