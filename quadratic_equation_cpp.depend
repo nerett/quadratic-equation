@@ -2,11 +2,12 @@
 1630053628 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/main.cpp
 	"quadratic_equation_struct.h"
 
-1630053292 /home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.h
+1630055969 /home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.h
 	<math.h>
 	<stdio.h>
 	<stdlib.h>
+	<assert.h>
 
-1630054305 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.cpp
+1630055755 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.cpp
 	"quadratic_equation_struct.h"
 

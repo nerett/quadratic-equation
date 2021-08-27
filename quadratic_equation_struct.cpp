@@ -1,8 +1,16 @@
 #include "quadratic_equation_struct.h"
 
 
-void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, const double coeff_b, const double coeff_c ) //!TODO написать ассерты сделать const
+void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, const double coeff_b, const double coeff_c )
 {
+    assert( std::isfinite( coeff_a ) );
+    assert( std::isfinite( coeff_b ) );
+    assert( std::isfinite( coeff_c ) );
+    assert( temporary != NULL );
+
+    //printf( "\n adress=%d \n", temporary );
+
+
     temporary->coeff_a = coeff_a;
     temporary->coeff_b = coeff_b;
     temporary->coeff_c = coeff_c;
@@ -12,6 +20,9 @@ void set_equation_coeffs( struct quadratic_equation* temporary, const double coe
 
 void calc_discriminant( struct quadratic_equation* temporary )
 {
+    assert( temporary != NULL );
+
+
     double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4*(temporary->coeff_a * temporary->coeff_c);
     temporary->discriminant = discriminant;
 }
@@ -20,6 +31,9 @@ void calc_discriminant( struct quadratic_equation* temporary )
 
 void check_solvability( struct quadratic_equation* temporary )
 {
+    assert( temporary != NULL );
+
+
     calc_discriminant( temporary );
 
 
@@ -35,6 +49,9 @@ void check_solvability( struct quadratic_equation* temporary )
 
 void solve_equation( struct quadratic_equation* temporary ) //!TODO частные случаи линейное квадратное
 {
+    assert( temporary != NULL );
+
+
     if( compare_with_zero( temporary->coeff_a ) )
     {
         solve_linear_equation( temporary );
@@ -61,6 +78,11 @@ void input_wipe_char() //очищает входной файл от элеме�
 
 void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_user_info )
 {
+    assert( coeff_a != NULL );
+    assert( coeff_b != NULL );
+    assert( coeff_c != NULL );
+
+
     int success_inputs = NAN;
 
 
@@ -109,6 +131,9 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
 
 void beau_output( struct quadratic_equation* temporary )
 {
+    assert( temporary != NULL );
+
+
     if( temporary->roots == TWO )
     {
         printf( "Корнями уравнения являются числа: \n" );
@@ -125,12 +150,19 @@ void beau_output( struct quadratic_equation* temporary )
         printf( "Уравнение не имеет корней! \n" ); // так, давайте без этой вашей вузовской программы пока
 
     }
+    if( temporary->roots == INFINITY_ROOTS )
+    {
+        printf( "Уравнение имеет бесконечное количество корней! \n" );
+    }
 }
 
 
 
 void solve_quadratic_equation( struct quadratic_equation* temporary )
 {
+        assert( temporary != NULL );
+
+
         temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a ); //!TODO вынести во временную переменную
         if( temporary->roots == TWO )
             temporary->root_2 = ( -1* temporary->coeff_b - sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
@@ -142,13 +174,16 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
 
 void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*X=-c, X=-c/b
 {
+    assert( temporary != NULL );
+
+
     if( temporary->coeff_b == 0 )
     {
         if( temporary->coeff_c == 0 )
         {
-            temporary->roots = ONE;
-            temporary->root_1 = 0;
-            temporary->root_2 = temporary->root_1; //а мало ли что...
+            temporary->roots = INFINITY_ROOTS;
+            //temporary->root_1 = 0;
+            //temporary->root_2 = temporary->root_1; //а мало ли что...
         }
         else
         {
@@ -167,6 +202,9 @@ void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*
 
 bool compare_with_zero( double value )
 {
+    assert( std::isfinite( value ) );
+
+
     if( fabs( value ) < DEVIATION_IN_CMP )
         return true;
     else

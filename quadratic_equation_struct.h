@@ -4,10 +4,11 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #define DEVIATION_IN_CMP 0.001
 
-enum number_of_roots { TWO, ONE, NO_ROOTS };
+enum number_of_roots { TWO, ONE, NO_ROOTS, INFINITY_ROOTS };
 
 struct quadratic_equation
 {
