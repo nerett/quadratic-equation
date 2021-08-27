@@ -14,7 +14,7 @@ void TEST_quadratic_equation()
     if( conduct_unit_test( 5,     0,        1,        0,     ONE,              0,               0 ) == false ) N_errors++;          //bX+c=0, bX=-c, X=-c/b;
     if( conduct_unit_test( 6,    16,      -19,        9,     NO_ROOTS,       NAN,               NAN ) == false ) N_errors++;
     if( conduct_unit_test( 7,     4,       -7,        3,     TWO,              1,               0.75 ) == false ) N_errors++;
-    if( conduct_unit_test( 8,     8,       -4,       -4,     TWO,              1,               -0.5 ) == false ) N_errors++;
+    if( conduct_unit_test( 8,     8,       -4,       -4,     TWO,              1,               -0.5 ) == false ) N_errors++;  //подстановка корней
 
 
     printf("NUMBER OF ERRORS: %d\n\n", N_errors );

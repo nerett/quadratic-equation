@@ -23,7 +23,7 @@ void calc_discriminant( struct quadratic_equation* temporary )
     assert( temporary != NULL );
 
 
-    double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4*(temporary->coeff_a * temporary->coeff_c);
+    double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4 * (temporary->coeff_a * temporary->coeff_c);
     temporary->discriminant = discriminant;
 }
 
@@ -34,12 +34,12 @@ void check_solvability( struct quadratic_equation* temporary )
     assert( temporary != NULL );
 
 
-    calc_discriminant( temporary );
+    calc_discriminant( temporary ); //считать дискриминант 1 раз
 
 
     if ( temporary->discriminant > 0 )
         temporary->roots = TWO;
-    if ( temporary->discriminant == 0 )
+    if ( compare_with_zero( temporary->discriminant ) )
         temporary->roots = ONE;
     if ( temporary->discriminant < 0 )
         temporary->roots = NO_ROOTS;
@@ -47,7 +47,7 @@ void check_solvability( struct quadratic_equation* temporary )
 
 
 
-void solve_equation( struct quadratic_equation* temporary )
+void solve_equation( struct quadratic_equation* temporary ) //заменить temporary
 {
     assert( temporary != NULL );
 
@@ -76,7 +76,7 @@ void input_wipe_char() //очищает входной файл от элеме�
 
 
 
-void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_user_info )
+void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool minimize_user_info )
 {
     assert( coeff_a != NULL );
     assert( coeff_b != NULL );
@@ -87,7 +87,7 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
 
 
     //setlocale(LC_ALL, "rus");
-    if( min_user_info == false )
+    if( minimize_user_info == false )
     {
         printf( "Квадратное уравнение имеет вид " );
         printf( "a*X^2+b*X+c=0 \n" );
@@ -120,9 +120,9 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool min_use
     while( success_inputs < 3 );
 
 
-    if( min_user_info == false )
+    if( minimize_user_info == false )
     {
-        printf( "Введено уравнение %fX^2+%f*X+%f=0 \n \n", coeff_a, coeff_b, coeff_c); // адекватный вывод будет позже
+        printf( "Введено уравнение %gX^2+%g*X+%g=0 \n \n", *coeff_a, *coeff_b, *coeff_c); // адекватный вывод будет позже
 
     }
 }
@@ -134,7 +134,7 @@ void beau_output( struct quadratic_equation* temporary )
     assert( temporary != NULL );
 
 
-    if( temporary->roots == TWO )
+    if( temporary->roots == TWO ) //switch
     {
         printf( "Корнями уравнения являются числа: \n" );
         printf( "%f\n", temporary->root_1 );
@@ -161,7 +161,10 @@ void beau_output( struct quadratic_equation* temporary )
 void solve_quadratic_equation( struct quadratic_equation* temporary )
 {
         assert( temporary != NULL );
-
+        assert( std::isfinite( temporary->coeff_a ) );
+        assert( std::isfinite( temporary->coeff_b ) );
+        assert( std::isfinite( temporary->coeff_c ) );
+        assert( std::isfinite( temporary->discriminant ) );
 
         temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
         if( temporary->roots == TWO )
@@ -177,7 +180,7 @@ void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*
     assert( temporary != NULL );
 
 
-    if( temporary->coeff_b == 0 )
+    if( compare_with_zero( temporary->coeff_b == 0 ) )
     {
         if( temporary->coeff_c == 0 )
         {
@@ -192,7 +195,7 @@ void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*
     {
         temporary->roots = ONE;
         temporary->root_1 = ( -1* temporary->coeff_c ) / temporary->coeff_b;
-        temporary->root_2 = temporary->root_2;
+        temporary->root_2 = temporary->root_1;
     }
 }
 

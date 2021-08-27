@@ -1,0 +1,8 @@
+<map id="solve_equation" name="solve_equation">
+<area shape="rect" id="node1" title="Determines the type of equation and solves it (roots are put into struct quadratic_equation)" alt="" coords="5,81,127,108"/>
+<area shape="rect" id="node2" href="$quadratic__equation__struct_8cpp.html#a9d5c4a55bc6d4c454d9282d69519f878" title="Checks if equation is solvable and puts information about roots number into struct quadratic_equation..." alt="" coords="202,5,337,32"/>
+<area shape="rect" id="node4" href="$quadratic__equation__struct_8cpp.html#a3b2774e3521325cd65cb7936775e2fe2" title="Compares this double value with zero and returns true if value tends to zero." alt="" coords="412,56,561,83"/>
+<area shape="rect" id="node5" href="$quadratic__equation__struct_8cpp.html#afe0700c670f2c693b81ffd3c3e7e17cb" title="Solves linear equation (roots are put into struct quadratic_equation)" alt="" coords="187,107,352,133"/>
+<area shape="rect" id="node6" href="$quadratic__equation__struct_8cpp.html#a69bf04104c6c4eedb9b895e07e6e0f00" title="Solves quadratic equation (roots are put into struct quadratic_equation)" alt="" coords="175,157,364,184"/>
+<area shape="rect" id="node3" href="$quadratic__equation__struct_8cpp.html#a0682a8d3ee4e71483600a68010a54b09" title="Calculates discriminant square and puts it into struct quadratic_equation." alt="" coords="419,5,555,32"/>
+</map>
