@@ -2,7 +2,7 @@
 This industrial-style program solves **quadratic equations** in real numbers.
 
 ## About
-The program is written using **structures** of the C language, **functions** and has a **high modularity**. All functions are provided with all **necessary checks**. For convinience, the source code is **split into several files**.
+The program is written using **structures** of the C language, **functions** and has a **high modularity**. All functions are provided with all **necessary checks** and can be tested with built-in **unit tests**. For convinience, the source code is **split into several files**.
 
 ## Building from source
 This section isn't done yet.
