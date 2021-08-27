@@ -1,0 +1,22 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[1,0],
+"classes.html":[1,1],
+"files.html":[2,0],
+"index.html":[],
+"md__r_e_a_d_m_e.html":[0],
+"md__r_e_a_d_m_e.html#autotoc_md1":[0,0],
+"md__r_e_a_d_m_e.html#autotoc_md2":[0,1],
+"md__r_e_a_d_m_e.html#autotoc_md3":[0,2],
+"md__r_e_a_d_m_e.html#autotoc_md4":[0,3],
+"pages.html":[],
+"quadratic__equation__struct_8h_source.html":[2,0,0],
+"structquadratic__equation.html":[1,0,0],
+"structquadratic__equation.html#a0feabdb819075b81f5a9428813ab0635":[1,0,0,1],
+"structquadratic__equation.html#a4a500b9122a4236f7df17bc4ed18e267":[1,0,0,0],
+"structquadratic__equation.html#a56235a61a21bbd67daabf6e6e60f8d32":[1,0,0,6],
+"structquadratic__equation.html#a78af5057882fed28801948998c7f35dd":[1,0,0,3],
+"structquadratic__equation.html#aae66470fa37f3f663b6bef431b1ae343":[1,0,0,2],
+"structquadratic__equation.html#aebb00aa44a25e3bd30a847714decc759":[1,0,0,4],
+"structquadratic__equation.html#af0de7718c13088417650f471fbde33ac":[1,0,0,5]
+};

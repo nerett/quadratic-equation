@@ -3,14 +3,14 @@
 
 int main()
 {
-    TEST_quadratic_equation();
+    //TEST_quadratic_equation();
 
 
     double coeff_a = NAN, coeff_b = NAN, coeff_c = NAN; // a*X^2+b*X+c=0
     quadratic_equation equation = {};
 
 
-    printf( "" ); //!TODO about:program
+    printf( "Quadratic equation solving program\nby nerett\n(c) 2021\n\n" ); //!TODO about:program
 
 
     beau_input( &coeff_a, &coeff_b, &coeff_c, false );
