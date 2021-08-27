@@ -8,7 +8,7 @@ int main()
 {
 #ifdef TEST
 
-    TEST_quadratic_equation();
+    test_quadratic_equation();
 
 #endif
 #ifndef TEST

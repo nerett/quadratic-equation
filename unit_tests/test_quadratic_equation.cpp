@@ -1,7 +1,7 @@
 #include "test_quadratic_equation.h"
 
 
-void TEST_quadratic_equation()
+void test_quadratic_equation()
 {
     int N_errors = 0;
 
@@ -52,7 +52,8 @@ bool conduct_unit_test( int test_number, double coeff_a, double coeff_b, double 
 
 
         printf("ERROR in test №%d! \n", test_number);
-        printf( "N_roots = %d, coeff_a = %g, coeff_b = %g, coeff_c = %g, root_1 = %g, root_2 = %g; \n", tested_equation.roots, tested_equation.coeff_a, tested_equation.coeff_b, tested_equation.coeff_c, tested_equation.root_1, tested_equation.root_2 );
+        printf( "N_roots = %d, coeff_a = %g, coeff_b = %g, coeff_c = %g, root_1 = %g, root_2 = %g; \n",
+                tested_equation.roots, tested_equation.coeff_a, tested_equation.coeff_b, tested_equation.coeff_c, tested_equation.root_1, tested_equation.root_2 );
         printf( "EXPECTED: N_roots = %d, root_1 = %g, root_2 = %g!\n", expected_N_roots, expected_root_1, expected_root_2 );
 
         return false;

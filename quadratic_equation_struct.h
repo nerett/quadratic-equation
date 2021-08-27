@@ -8,8 +8,9 @@
 
 //#define DEVIATION_IN_CMP 0.001
 const double DEVIATION_IN_CMP = 0.001;
+const int NUMBER_OF_COEFFS = 3;
 
-enum number_of_roots { TWO, ONE, NO_ROOTS, INFINITY_ROOTS };
+enum number_of_roots { NO_ROOTS, ONE, TWO, INFINITY_ROOTS }; //поменял местами
 
 struct quadratic_equation ///<Quadratic/linear equation structure (contains coefficients, discriminant, number of roots and roots)
 {
@@ -19,8 +20,8 @@ struct quadratic_equation ///<Quadratic/linear equation structure (contains coef
     number_of_roots roots = {};
 };
 
-void beau_input ( double* coeff_a, double* coeff_b, double* coeff_c, bool minimize_user_info ); ///<Coefficients input with user interface and two interface layout options (minimal and standart)
-void beau_output ( struct quadratic_equation* equation ); ///<Roots output with user interface
+void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool minimize_user_info ); ///<Coefficients input with user interface and two interface layout options (minimal and standart)
+void beau_output( struct quadratic_equation* equation ); ///<Roots output with user interface
 
 void check_solvability( struct quadratic_equation* equation ); ///<Checks if equation is solvable and puts information about roots number into struct quadratic_equation
 void calc_discriminant( struct quadratic_equation* equation ); ///<Calculates discriminant square and puts it into struct quadratic_equation
