@@ -1,5 +1,5 @@
 <map id="input_wipe_char" name="input_wipe_char">
 <area shape="rect" id="node1" title="Wipes char elements from input file (useful when char is entered by mistake)" alt="" coords="251,5,379,32"/>
 <area shape="rect" id="node2" href="$quadratic__equation__struct_8h.html#a5a08045d24239d6773f997dba5519f2b" title="Coefficients input with user interface and two interface layout options (minimal and standart)" alt="" coords="108,5,203,32"/>
-<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="TODO mainpage." alt="" coords="5,5,60,32"/>
 </map>

@@ -1,0 +1,4 @@
+<map id="solve_equation" name="solve_equation">
+<area shape="rect" id="node1" title="Determines the type of equation and solves it (roots are put into struct QuadraticEquation)" alt="" coords="5,5,127,32"/>
+<area shape="rect" id="node2" href="$quadratic__equation__struct_8cpp.html#a3b2774e3521325cd65cb7936775e2fe2" title="TODO is_equal(double a, double b);." alt="" coords="175,5,324,32"/>
+</map>

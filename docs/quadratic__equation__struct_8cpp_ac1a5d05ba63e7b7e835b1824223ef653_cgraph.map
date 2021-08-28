@@ -1,0 +1,5 @@
+<map id="check_solvability" name="check_solvability">
+<area shape="rect" id="node1" title="Checks if equation is solvable and puts information about roots number into struct QuadraticEquation." alt="" coords="5,31,140,57"/>
+<area shape="rect" id="node2" href="$quadratic__equation__struct_8cpp.html#a79d1a9e6ea2c6810ac9577b630e15d34" title="Calculates discriminant square and puts it into struct QuadraticEquation." alt="" coords="195,5,331,32"/>
+<area shape="rect" id="node3" href="$quadratic__equation__struct_8cpp.html#a3b2774e3521325cd65cb7936775e2fe2" title="TODO is_equal(double a, double b);." alt="" coords="188,56,337,83"/>
+</map>

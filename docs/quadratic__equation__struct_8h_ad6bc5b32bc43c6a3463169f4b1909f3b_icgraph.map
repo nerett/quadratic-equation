@@ -1,7 +1,6 @@
 <map id="compare_with_zero" name="compare_with_zero">
-<area shape="rect" id="node1" title="Compares this double value with zero and returns true if value tends to zero." alt="" coords="491,56,640,83"/>
-<area shape="rect" id="node2" href="$quadratic__equation__struct_8h.html#a46d060621f97fd3997435f3538d615d5" title="Checks if equation is solvable and puts information about roots number into struct quadratic_equation..." alt="" coords="293,5,427,32"/>
-<area shape="rect" id="node3" href="$quadratic__equation__struct_8h.html#a0adccd928b1bcd6ad5d4f5328d55d322" title="Determines the type of equation and solves it (roots are put into struct quadratic_equation)" alt="" coords="108,56,229,83"/>
-<area shape="rect" id="node5" href="$quadratic__equation__struct_8h.html#a54aab6e49bea3163fa63fd5e66fd31f7" title="Solves linear equation (roots are put into struct quadratic_equation)" alt="" coords="277,107,443,133"/>
-<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,83"/>
+<area shape="rect" id="node1" title="Compares this double value with zero and returns true if value tends to zero." alt="" coords="291,31,440,57"/>
+<area shape="rect" id="node2" href="$quadratic__equation__struct_8h.html#ac1a5d05ba63e7b7e835b1824223ef653" title="Checks if equation is solvable and puts information about roots number into struct QuadraticEquation." alt="" coords="108,5,243,32"/>
+<area shape="rect" id="node3" href="$quadratic__equation__struct_8h.html#a84409d12262b0b5e56eace1bb7d0899c" title="Determines the type of equation and solves it (roots are put into struct QuadraticEquation)" alt="" coords="115,56,236,83"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="TODO mainpage." alt="" coords="5,56,60,83"/>
 </map>

@@ -22,7 +22,7 @@ for the JavaScript code in this file
 */
 var NAVTREE =
 [
-  [ "quadratic-equation", "index.html", [
+  [ "Quadratic equation", "index.html", [
     [ "Quadratic equation", "md__r_e_a_d_m_e.html", [
       [ "About", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
       [ "Building from source", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
@@ -42,9 +42,9 @@ var NAVTREE =
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
-        [ "Enumerator", "globals_eval.html", null ]
+        [ "Enumerator", "globals_eval.html", null ],
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]

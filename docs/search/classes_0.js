@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quadratic_5fequation_30',['quadratic_equation',['../structquadratic__equation.html',1,'']]]
+  ['quadraticequation_29',['QuadraticEquation',['../struct_quadratic_equation.html',1,'']]]
 ];

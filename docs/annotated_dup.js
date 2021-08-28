@@ -1,4 +1,4 @@
 var annotated_dup =
 [
-    [ "quadratic_equation", "structquadratic__equation.html", "structquadratic__equation" ]
+    [ "QuadraticEquation", "struct_quadratic_equation.html", "struct_quadratic_equation" ]
 ];

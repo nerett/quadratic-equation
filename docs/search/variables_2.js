@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['root_5f1_51',['root_1',['../structquadratic__equation.html#aebb00aa44a25e3bd30a847714decc759',1,'quadratic_equation']]],
-  ['root_5f2_52',['root_2',['../structquadratic__equation.html#af0de7718c13088417650f471fbde33ac',1,'quadratic_equation']]],
-  ['roots_53',['roots',['../structquadratic__equation.html#a56235a61a21bbd67daabf6e6e60f8d32',1,'quadratic_equation']]]
+  ['root_5f1_47',['root_1',['../struct_quadratic_equation.html#a5d57753f3e3861b40388719a4c992257',1,'QuadraticEquation']]],
+  ['root_5f2_48',['root_2',['../struct_quadratic_equation.html#afa231bef02e61212fd0d7f6d4614f0db',1,'QuadraticEquation']]],
+  ['roots_49',['roots',['../struct_quadratic_equation.html#a0cffd238aac16a1c0c458973445b92b0',1,'QuadraticEquation']]]
 ];

@@ -1,73 +1,73 @@
 #include "quadratic_equation_struct.h"
 
 
-void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, const double coeff_b, const double coeff_c )
+void set_equation_coeffs( struct QuadraticEquation* equation, const double coeff_a, const double coeff_b, const double coeff_c )
 {
-    assert( temporary != NULL );
+    assert( equation != NULL );
     assert( std::isfinite( coeff_a ) );
     assert( std::isfinite( coeff_b ) );
     assert( std::isfinite( coeff_c ) );
 
 
-    //printf( "\n adress=%d \n", temporary );
-    temporary->coeff_a = coeff_a;
-    temporary->coeff_b = coeff_b;
-    temporary->coeff_c = coeff_c;
+    //printf( "\n adress=%d \n", equation );
+    equation->coeff_a = coeff_a;
+    equation->coeff_b = coeff_b;
+    equation->coeff_c = coeff_c;
 }
 
 
 
-void calc_discriminant( struct quadratic_equation* temporary )
+void calc_discriminant( struct QuadraticEquation* equation )
 {
-    assert( temporary != NULL );
-    assert( std::isfinite( temporary->coeff_a ) );
-    assert( std::isfinite( temporary->coeff_b ) );
-    assert( std::isfinite( temporary->coeff_c ) );
+    assert( equation != NULL );
+    assert( std::isfinite( equation->coeff_a ) );
+    assert( std::isfinite( equation->coeff_b ) );
+    assert( std::isfinite( equation->coeff_c ) );
 
 
-    //printf( "discriminant calculated\n" ); //тест для оптимизации
-    double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4 * (temporary->coeff_a * temporary->coeff_c);
-    temporary->discriminant = discriminant;
+    double discriminant = (equation->coeff_b * equation->coeff_b) - 4 * (equation->coeff_a * equation->coeff_c);
+    assert( std::isfinite( discriminant ) ); //защита от переполнения
+    equation->discriminant = discriminant;
 }
 
 
 
-void check_solvability( struct quadratic_equation* temporary )
+void check_solvability( struct QuadraticEquation* equation )
 {
-    assert( temporary != NULL );
-    assert( std::isfinite( temporary->coeff_a ) );
-    assert( std::isfinite( temporary->coeff_b ) );
-    assert( std::isfinite( temporary->coeff_c ) );
+    assert( equation != NULL );
+    assert( std::isfinite( equation->coeff_a ) );
+    assert( std::isfinite( equation->coeff_b ) );
+    assert( std::isfinite( equation->coeff_c ) );
 
 
-    calc_discriminant( temporary );
+    calc_discriminant( equation );
 
-    if ( temporary->discriminant > 0 )
-        temporary->roots = TWO;
-    if ( compare_with_zero( temporary->discriminant ) )
-        temporary->roots = ONE;
-    if ( temporary->discriminant < 0 )
-        temporary->roots = NO_ROOTS;
+    if ( equation->discriminant > 0 )
+        equation->roots = TWO;
+    if ( compare_with_zero( equation->discriminant ) )
+        equation->roots = ONE;
+    if ( equation->discriminant < 0 )
+        equation->roots = NO_ROOTS;
 }
 
 
 
-void solve_equation( struct quadratic_equation* temporary ) //!TODO заменить temporary
+void solve_equation( struct QuadraticEquation* equation )
 {
-    assert( temporary != NULL );
+    assert( equation != NULL );
 
 
-    if( compare_with_zero( temporary->coeff_a ) )
+    if( compare_with_zero( equation->coeff_a ) )
     {
-        solve_linear_equation( temporary );
+        solve_linear_equation( equation );
     }
     else
     {
-        check_solvability( temporary );
+        check_solvability( equation );
 
-        if( temporary->roots != NO_ROOTS )
+        if( equation->roots != NO_ROOTS )
         {
-            solve_quadratic_equation( temporary );
+            solve_quadratic_equation( equation );
         }
     }
 }
@@ -76,7 +76,7 @@ void solve_equation( struct quadratic_equation* temporary ) //!TODO замени
 
 void input_wipe_char() //очищает входной файл от элементов типа char
 {
-    while( getchar() != '\n' ) {}
+    while( getchar() != ( '\n' || EOF ) ) {}
 }
 
 
@@ -131,40 +131,40 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool minimiz
 
 
 
-void beau_output( struct quadratic_equation* temporary )
+void beau_output( struct QuadraticEquation* equation )
 {
-    assert( temporary != NULL );
+    assert( equation != NULL );
 
 
 /*
-    printf( "%d\n", temporary->roots );
-    switch( temporary->roots )
+    printf( "%d\n", equation->roots );
+    switch( equation->roots )
     {
         case NO_ROOTS: printf( "Уравнение не имеет корней! \n" );
-        case ONE: printf( "Уравнение имеет единственный корень: \n%f\n", temporary->root_1 );
-        case TWO: printf( "Корнями уравнения являются числа: \n%f\n%f\n", temporary->root_1, temporary->root_2 );
+        case ONE: printf( "Уравнение имеет единственный корень: \n%f\n", equation->root_1 );
+        case TWO: printf( "Корнями уравнения являются числа: \n%f\n%f\n", equation->root_1, equation->root_2 );
         case INFINITY_ROOTS: printf( "Уравнение имеет бесконечное количество корней! \n" );
         default: printf( "fff\n" );
     }
 */
 
-    if( temporary->roots == TWO ) //switch
+    if( equation->roots == TWO ) //switch
     {
         printf( "Корнями уравнения являются числа: \n" );
-        printf( "%f\n", temporary->root_1 );
-        printf( "%f\n", temporary->root_2 );
+        printf( "%f\n", equation->root_1 );
+        printf( "%f\n", equation->root_2 );
     }
-    if( temporary->roots == ONE )
+    if( equation->roots == ONE )
     {
         printf( "Уравнение имеет единственный корень: \n" );
-        printf( "%f\n", temporary->root_1 );
+        printf( "%f\n", equation->root_1 );
     }
-    if( temporary->roots == NO_ROOTS )
+    if( equation->roots == NO_ROOTS )
     {
         printf( "Уравнение не имеет корней! \n" ); // так, давайте без этой вашей вузовской программы пока
 
     }
-    if( temporary->roots == INFINITY_ROOTS )
+    if( equation->roots == INFINITY_ROOTS )
     {
         printf( "Уравнение имеет бесконечное количество корней! \n" );
     }
@@ -172,58 +172,58 @@ void beau_output( struct quadratic_equation* temporary )
 
 
 
-void solve_quadratic_equation( struct quadratic_equation* temporary )
+static void solve_quadratic_equation( struct QuadraticEquation* equation )
 {
-        assert( temporary != NULL );
-        assert( std::isfinite( temporary->coeff_a ) );
-        assert( std::isfinite( temporary->coeff_b ) );
-        assert( std::isfinite( temporary->coeff_c ) );
-        assert( std::isfinite( temporary->discriminant ) );
+        assert( equation != NULL );
+        assert( std::isfinite( equation->coeff_a ) );
+        assert( std::isfinite( equation->coeff_b ) );
+        assert( std::isfinite( equation->coeff_c ) );
+        assert( std::isfinite( equation->discriminant ) );
 
 
-        temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
-        if( temporary->roots == TWO )
+        equation->root_1 = ( -1 * equation->coeff_b + sqrt( equation->discriminant ) ) / ( 2 * equation->coeff_a );
+        if( equation->roots == TWO )
         {
-            temporary->root_2 = ( -1* temporary->coeff_b - sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
+            equation->root_2 = ( -1 * equation->coeff_b - sqrt( equation->discriminant ) ) / ( 2 * equation->coeff_a );
         }
         else
         {
-            temporary->root_2 = temporary->root_1;
+            equation->root_2 = equation->root_1;
         }
 }
 
 
 
-void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*X=-c, X=-c/b
+static void solve_linear_equation( struct QuadraticEquation* equation ) //b*X+c=0, b*X=-c, X=-c/b
 {
-    assert( temporary != NULL );
-    assert( std::isfinite( temporary->coeff_a ) );
-    assert( std::isfinite( temporary->coeff_b ) );
-    assert( std::isfinite( temporary->coeff_c ) );
+    assert( equation != NULL );
+    assert( std::isfinite( equation->coeff_a ) );
+    assert( std::isfinite( equation->coeff_b ) );
+    assert( std::isfinite( equation->coeff_c ) );
 
 
-    if( compare_with_zero( temporary->coeff_b ) )
+    if( compare_with_zero( equation->coeff_b ) )
     {
-        if( temporary->coeff_c == 0 )
+        if( equation->coeff_c == 0 )
         {
-            temporary->roots = INFINITY_ROOTS;
+            equation->roots = INFINITY_ROOTS;
         }
         else
         {
-            temporary->roots = NO_ROOTS;
+            equation->roots = NO_ROOTS;
         }
     }
     else
     {
-        temporary->roots = ONE;
-        temporary->root_1 = ( -1* temporary->coeff_c ) / temporary->coeff_b;
-        temporary->root_2 = temporary->root_1;
+        equation->roots = ONE;
+        equation->root_1 = ( -1* equation->coeff_c ) / equation->coeff_b;
+        equation->root_2 = equation->root_1;
     }
 }
 
 
 
-bool compare_with_zero( double value )
+bool compare_with_zero( double value ) //!TODO is_equal(double a, double b);
 {
     assert( std::isfinite( value ) );
 

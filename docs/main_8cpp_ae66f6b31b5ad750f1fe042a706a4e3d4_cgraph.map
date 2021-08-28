@@ -1,13 +1,9 @@
 <map id="main" name="main">
-<area shape="rect" id="node1" title=" " alt="" coords="5,81,60,108"/>
+<area shape="rect" id="node1" title="TODO mainpage." alt="" coords="5,81,60,108"/>
 <area shape="rect" id="node2" href="$quadratic__equation__struct_8cpp.html#a5a08045d24239d6773f997dba5519f2b" title="Coefficients input with user interface and two interface layout options (minimal and standart)" alt="" coords="137,5,231,32"/>
-<area shape="rect" id="node4" href="$quadratic__equation__struct_8cpp.html#a4e6b9925eeda3060c28fa59e7de2cec4" title="Roots output with user interface." alt="" coords="133,56,235,83"/>
-<area shape="rect" id="node5" href="$quadratic__equation__struct_8cpp.html#aac3a99a2da3fead390b5560bd159bfb5" title="Sets equation coefficients in struct quadratic_equation." alt="" coords="108,107,260,133"/>
-<area shape="rect" id="node6" href="$quadratic__equation__struct_8cpp.html#a12a535e2690e6a859ce7e1b598f0e075" title="Determines the type of equation and solves it (roots are put into struct quadratic_equation)" alt="" coords="123,157,245,184"/>
-<area shape="rect" id="node3" href="$quadratic__equation__struct_8cpp.html#a9db57d90083001131576656e33655b2c" title="Wipes char elements from input file (useful when char is entered by mistake)" alt="" coords="339,5,467,32"/>
-<area shape="rect" id="node7" href="$quadratic__equation__struct_8cpp.html#a9d5c4a55bc6d4c454d9282d69519f878" title="Checks if equation is solvable and puts information about roots number into struct quadratic_equation..." alt="" coords="335,81,470,108"/>
-<area shape="rect" id="node9" href="$quadratic__equation__struct_8cpp.html#a3b2774e3521325cd65cb7936775e2fe2" title="Compares this double value with zero and returns true if value tends to zero." alt="" coords="545,132,695,159"/>
-<area shape="rect" id="node10" href="$quadratic__equation__struct_8cpp.html#afe0700c670f2c693b81ffd3c3e7e17cb" title="Solves linear equation (roots are put into struct quadratic_equation)" alt="" coords="320,183,485,209"/>
-<area shape="rect" id="node11" href="$quadratic__equation__struct_8cpp.html#a69bf04104c6c4eedb9b895e07e6e0f00" title="Solves quadratic equation (roots are put into struct quadratic_equation)" alt="" coords="308,233,497,260"/>
-<area shape="rect" id="node8" href="$quadratic__equation__struct_8cpp.html#a0682a8d3ee4e71483600a68010a54b09" title="Calculates discriminant square and puts it into struct quadratic_equation." alt="" coords="552,81,688,108"/>
+<area shape="rect" id="node4" href="$quadratic__equation__struct_8cpp.html#aefa4276834bce3dd9b3bfed3367077ca" title="Roots output with user interface." alt="" coords="133,56,235,83"/>
+<area shape="rect" id="node5" href="$quadratic__equation__struct_8cpp.html#a8788f960664a75002df9bd177fc03dcb" title="Sets equation coefficients in struct QuadraticEquation." alt="" coords="108,107,260,133"/>
+<area shape="rect" id="node6" href="$quadratic__equation__struct_8cpp.html#a84409d12262b0b5e56eace1bb7d0899c" title="Determines the type of equation and solves it (roots are put into struct QuadraticEquation)" alt="" coords="123,157,245,184"/>
+<area shape="rect" id="node3" href="$quadratic__equation__struct_8cpp.html#a9db57d90083001131576656e33655b2c" title="Wipes char elements from input file (useful when char is entered by mistake)" alt="" coords="319,5,447,32"/>
+<area shape="rect" id="node7" href="$quadratic__equation__struct_8cpp.html#a3b2774e3521325cd65cb7936775e2fe2" title="TODO is_equal(double a, double b);." alt="" coords="308,157,457,184"/>
 </map>

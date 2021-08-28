@@ -1,0 +1,4 @@
+<map id="calc_discriminant" name="calc_discriminant">
+<area shape="rect" id="node1" title="Calculates discriminant square and puts it into struct QuadraticEquation." alt="" coords="188,5,324,32"/>
+<area shape="rect" id="node2" href="$quadratic__equation__struct_8h.html#ac1a5d05ba63e7b7e835b1824223ef653" title="Checks if equation is solvable and puts information about roots number into struct QuadraticEquation." alt="" coords="5,5,140,32"/>
+</map>
