@@ -76,7 +76,7 @@ void solve_equation( struct QuadraticEquation* equation )
 
 void input_wipe_char() //очищает входной файл от элементов типа char
 {
-    while( getchar() != ( '\n' || EOF ) ) {}
+    while( getchar() != ( '\n' ) ) {}
 }
 
 
@@ -136,18 +136,16 @@ void beau_output( struct QuadraticEquation* equation )
     assert( equation != NULL );
 
 
-/*
-    printf( "%d\n", equation->roots );
     switch( equation->roots )
     {
-        case NO_ROOTS: printf( "Уравнение не имеет корней! \n" );
-        case ONE: printf( "Уравнение имеет единственный корень: \n%f\n", equation->root_1 );
-        case TWO: printf( "Корнями уравнения являются числа: \n%f\n%f\n", equation->root_1, equation->root_2 );
-        case INFINITY_ROOTS: printf( "Уравнение имеет бесконечное количество корней! \n" );
-        default: printf( "fff\n" );
+        case NO_ROOTS: printf( "Уравнение не имеет корней! \n" );                                                       break;
+        case ONE: printf( "Уравнение имеет единственный корень: \n%f\n", equation->root_1 );                            break;
+        case TWO: printf( "Корнями уравнения являются числа: \n%f\n%f\n", equation->root_1, equation->root_2 );         break;
+        case INFINITY_ROOTS: printf( "Уравнение имеет бесконечное количество корней! \n" );                             break;
+        default:                                                                                                        break;
     }
-*/
 
+/*
     if( equation->roots == TWO ) //switch
     {
         printf( "Корнями уравнения являются числа: \n" );
@@ -168,6 +166,7 @@ void beau_output( struct QuadraticEquation* equation )
     {
         printf( "Уравнение имеет бесконечное количество корней! \n" );
     }
+    */
 }
 
 

@@ -13,7 +13,7 @@
 #include "quadratic_equation_struct.h"
 #include "unit_tests/test_quadratic_equation.h"
 
-#define TEST
+//#define TEST
 
 //!TODO mainpage
 int main()
