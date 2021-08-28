@@ -31,7 +31,7 @@ void check_solvability( struct quadratic_equation* temporary )
 {
     assert( temporary != NULL );
 
-    calc_discriminant( temporary ); //считать дискриминант 1 раз
+    calc_discriminant( temporary ); //!TODO считать дискриминант 1 раз
 
     if ( temporary->discriminant > 0 )
         temporary->roots = TWO;
@@ -43,7 +43,7 @@ void check_solvability( struct quadratic_equation* temporary )
 
 
 
-void solve_equation( struct quadratic_equation* temporary ) //заменить temporary
+void solve_equation( struct quadratic_equation* temporary ) //!TODO заменить temporary
 {
     assert( temporary != NULL );
 
@@ -129,13 +129,16 @@ void beau_output( struct quadratic_equation* temporary )
 {
     assert( temporary != NULL );
 
+
 /*
+    printf( "%d\n", temporary->roots );
     switch( temporary->roots )
     {
-        case NO_ROOTS:
-        case ONE:
-        case TWO:
-        case INFINITY_ROOTS:
+        case NO_ROOTS: printf( "Уравнение не имеет корней! \n" );
+        case ONE: printf( "Уравнение имеет единственный корень: \n%f\n", temporary->root_1 );
+        case TWO: printf( "Корнями уравнения являются числа: \n%f\n%f\n", temporary->root_1, temporary->root_2 );
+        case INFINITY_ROOTS: printf( "Уравнение имеет бесконечное количество корней! \n" );
+        default: printf( "fff\n" );
     }
 */
 
@@ -159,7 +162,6 @@ void beau_output( struct quadratic_equation* temporary )
     {
         printf( "Уравнение имеет бесконечное количество корней! \n" );
     }
-
 }
 
 
@@ -187,10 +189,10 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
 
 void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*X=-c, X=-c/b
 {
-    assert( temporary != NULL ); //assert ++
+    assert( temporary != NULL ); //!TODO assert ++
 
 
-    if( compare_with_zero( temporary->coeff_b == 0 ) )
+    if( compare_with_zero( temporary->coeff_b ) )
     {
         if( temporary->coeff_c == 0 )
         {

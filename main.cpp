@@ -1,7 +1,7 @@
 #include "quadratic_equation_struct.h"
 #include "unit_tests/test_quadratic_equation.h"
 
-//#define TEST
+#define TEST
 
 
 int main()
@@ -22,7 +22,6 @@ int main()
 
 
     beau_input( &coeff_a, &coeff_b, &coeff_c, false );
-
 
     set_equation_coeffs( &equation, coeff_a, coeff_b, coeff_c );
     solve_equation( &equation );

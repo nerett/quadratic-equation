@@ -17,7 +17,7 @@ void test_quadratic_equation()
     if( conduct_unit_test( 8,     8,       -4,       -4,     TWO,              1,               -0.5 ) == false ) N_errors++;  //подстановка корней
 
 
-    printf("NUMBER OF ERRORS: %d\n\n", N_errors );
+    printf("\nNUMBER OF ERRORS: %d\n\n", N_errors );
 }
 
 
@@ -51,10 +51,10 @@ bool conduct_unit_test( int test_number, double coeff_a, double coeff_b, double 
         }
 
 
-        printf("ERROR in test №%d! \n", test_number);
-        printf( "N_roots = %d, coeff_a = %g, coeff_b = %g, coeff_c = %g, root_1 = %g, root_2 = %g; \n",
-                tested_equation.roots, tested_equation.coeff_a, tested_equation.coeff_b, tested_equation.coeff_c, tested_equation.root_1, tested_equation.root_2 );
-        printf( "EXPECTED: N_roots = %d, root_1 = %g, root_2 = %g!\n", expected_N_roots, expected_root_1, expected_root_2 );
+        printf("\n[ERROR] in test №%d! \n", test_number);
+        printf( "coeff_a = %g, coeff_b = %g, coeff_c = %g\nRECEIVED: N_roots = %d, root_1 = %g, root_2 = %g \n",
+                tested_equation.coeff_a, tested_equation.coeff_b, tested_equation.coeff_c, tested_equation.roots, tested_equation.root_1, tested_equation.root_2 );
+        printf( "EXPECTED: N_roots = %d, root_1 = %g, root_2 = %g\n\n", expected_N_roots, expected_root_1, expected_root_2 );
 
         return false;
     }

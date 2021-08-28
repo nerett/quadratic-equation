@@ -10,6 +10,7 @@
 const double DEVIATION_IN_CMP = 0.001;
 const int NUMBER_OF_COEFFS = 3;
 
+//enum number_of_roots { TWO, ONE, NO_ROOTS, INFINITY_ROOTS };
 enum number_of_roots { NO_ROOTS, ONE, TWO, INFINITY_ROOTS }; //поменял местами
 
 struct quadratic_equation ///<Quadratic/linear equation structure (contains coefficients, discriminant, number of roots and roots)
