@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1630135858 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/main.cpp
+1630137170 source:/home/shob/Dev/ILAB 2020-2021/quadratic equation/main.cpp
 	"quadratic_equation_struct.h"
 	"unit_tests/test_quadratic_equation.h"
 
-1630135580 /home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.h
+1630137442 /home/shob/Dev/ILAB 2020-2021/quadratic equation/quadratic_equation_struct.h
 	<math.h>
 	<stdio.h>
 	<stdlib.h>

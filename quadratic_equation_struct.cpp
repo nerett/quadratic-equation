@@ -3,13 +3,13 @@
 
 void set_equation_coeffs( struct quadratic_equation* temporary, const double coeff_a, const double coeff_b, const double coeff_c )
 {
+    assert( temporary != NULL );
     assert( std::isfinite( coeff_a ) );
     assert( std::isfinite( coeff_b ) );
     assert( std::isfinite( coeff_c ) );
-    assert( temporary != NULL );
+
 
     //printf( "\n adress=%d \n", temporary );
-
     temporary->coeff_a = coeff_a;
     temporary->coeff_b = coeff_b;
     temporary->coeff_c = coeff_c;
@@ -20,7 +20,12 @@ void set_equation_coeffs( struct quadratic_equation* temporary, const double coe
 void calc_discriminant( struct quadratic_equation* temporary )
 {
     assert( temporary != NULL );
+    assert( std::isfinite( temporary->coeff_a ) );
+    assert( std::isfinite( temporary->coeff_b ) );
+    assert( std::isfinite( temporary->coeff_c ) );
 
+
+    //printf( "discriminant calculated\n" ); //тест для оптимизации
     double discriminant = (temporary->coeff_b * temporary->coeff_b) - 4 * (temporary->coeff_a * temporary->coeff_c);
     temporary->discriminant = discriminant;
 }
@@ -30,8 +35,12 @@ void calc_discriminant( struct quadratic_equation* temporary )
 void check_solvability( struct quadratic_equation* temporary )
 {
     assert( temporary != NULL );
+    assert( std::isfinite( temporary->coeff_a ) );
+    assert( std::isfinite( temporary->coeff_b ) );
+    assert( std::isfinite( temporary->coeff_c ) );
 
-    calc_discriminant( temporary ); //!TODO считать дискриминант 1 раз
+
+    calc_discriminant( temporary );
 
     if ( temporary->discriminant > 0 )
         temporary->roots = TWO;
@@ -96,15 +105,12 @@ void beau_input( double* coeff_a, double* coeff_b, double* coeff_c, bool minimiz
 
 
         printf( "Введите коэффициент a: \n" );
-
         success_inputs += scanf( "%lf", coeff_a );
 
         printf( "Введите коэффициент b: \n" );
-
         success_inputs += scanf( "%lf", coeff_b );
 
         printf( "Введите коэффициент c: \n" );
-
         success_inputs += scanf( "%lf", coeff_c );
 
         input_wipe_char();
@@ -174,6 +180,7 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
         assert( std::isfinite( temporary->coeff_c ) );
         assert( std::isfinite( temporary->discriminant ) );
 
+
         temporary->root_1 = ( -1* temporary->coeff_b + sqrt( temporary->discriminant ) ) / ( 2* temporary->coeff_a );
         if( temporary->roots == TWO )
         {
@@ -189,7 +196,10 @@ void solve_quadratic_equation( struct quadratic_equation* temporary )
 
 void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*X=-c, X=-c/b
 {
-    assert( temporary != NULL ); //!TODO assert ++
+    assert( temporary != NULL );
+    assert( std::isfinite( temporary->coeff_a ) );
+    assert( std::isfinite( temporary->coeff_b ) );
+    assert( std::isfinite( temporary->coeff_c ) );
 
 
     if( compare_with_zero( temporary->coeff_b ) )
@@ -216,6 +226,7 @@ void solve_linear_equation( struct quadratic_equation* temporary ) //b*X+c=0, b*
 bool compare_with_zero( double value )
 {
     assert( std::isfinite( value ) );
+
 
     return ( fabs( value ) < DEVIATION_IN_CMP );
 }
